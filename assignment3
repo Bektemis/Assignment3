@@ -1,0 +1,105 @@
+1:
+class String():
+    def init(self):
+        self.str1 = ""
+
+    def getString(self):
+        self.str1 = input()
+
+    def printString(self):
+        print(self.str1.upper())
+
+str1 = String()
+str1.getString()
+str1.printString()
+
+
+
+2:
+class Shape():
+    def __init__(self):
+        pass
+
+    def area(self):
+        return 0
+
+class Square(Shape):
+    def __init__(self,length = 0):
+        Shape.__init__(self)
+        self.length = length
+
+    def area(self):
+        return self.length*self.length
+
+Asqr = Square(5)
+print(Asqr.area()) 
+
+print(Square().area())  
+
+
+
+3:
+class Rectangle():
+    def __init__(self, l, w):
+        self.length = l
+        self.width  = w
+
+    def rectangle_area(self):
+        return self.length*self.width
+
+newRectangle = Rectangle(12, 10)
+print(newRectangle.rectangle_area())
+
+
+
+4:
+class Point(object):
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+
+    def show(self):
+        return self.x, self.y
+
+
+    def move(self, x, y):
+        self.x += x
+        self.y += y
+
+
+    def dist(self, pt):
+        dx = pt.x - self.x
+        dy = pt.y - self.y
+        return math.sqrt(dx ** 2 + dy ** 2)
+        
+        
+        
+5:
+class InsufficientFunds(Exception): 
+    pass 
+ 
+class BankAccount: 
+ 
+    def __init__(self, owner, balance): 
+        self.owner = owner 
+        self.balance = balance 
+ 
+    def withdraw(self, amnt): 
+        if amnt > self.balance: 
+            raise InsufficientFunds 
+        self.balance = self.balance - amnt 
+        return amnt 
+ 
+    def deposit(self, amnt): 
+        self.balance = self.balance + amnt 
+        print("receipt") 
+        
+        
+        
+6:
+ip_list = [1, 2, 3, 10, 17, 19, 23, 25, 30, 50, 51, 59, 60, 100]
+
+is_prime = list(filter(lambda i: all(i%j!=0 for j in range(2, i//2)), ip_list))
+
+print(is_prime)
